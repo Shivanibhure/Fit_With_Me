@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Health Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Add New Health Profile</h2>
+        </div>
+
+        <form action="/profile-added/" method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="person_name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="person_name" name="person_name" required>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age" name="age" min="0" required>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select class="form-select" id="gender" name="gender" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="height_cm" class="form-label">Height (cm)</label>
+                    <input type="number" step="0.01" class="form-control" id="height_cm" name="height_cm" required>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="weight_kg" class="form-label">Weight (kg)</label>
+                    <input type="number" class="form-control" id="weight_kg" name="weight_kg" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="bmi" class="form-label">BMI</label>
+                <input type="number" step="0.01" class="form-control" id="bmi" name="bmi" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="food_type" class="form-label">Food Preference</label>
+                <select class="form-select" id="food_type" name="food_type" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="steps_per_day" class="form-label">Steps Per Day</label>
+                <input type="number" class="form-control" id="steps_per_day" name="steps_per_day" required>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-success btn-lg">Submit Profile</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const heightInput = document.getElementById('height_cm');
+    const weightInput = document.getElementById('weight_kg');
+    const bmiInput = document.getElementById('bmi');
+
+    function calculateBMI() {
+        const height = parseFloat(heightInput.value);
+        const weight = parseFloat(weightInput.value);
+
+        if (height > 0 && weight > 0) {
+            const heightInMeters = height / 100;
+            const bmi = weight / (heightInMeters * heightInMeters);
+            bmiInput.value = bmi.toFixed(2);
+        } else {
+            bmiInput.value = '';
+        }
+    }
+
+    heightInput.addEventListener('input', calculateBMI);
+    weightInput.addEventListener('input', calculateBMI);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fitness Consultant</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .content-section {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      background-color: #f9f9f9;
+    }
+    .content-img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">FitWithMe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            
+            <a class="nav-link" href="/login/">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container my-5">
+    
+    <!-- Section 1: Health -->
+    <div class="row content-section align-items-center">
+      <div class="col-md-6">
+        <h2>Health Matters</h2>
+        <p>
+          Health is the foundation of a strong body and a sharp mind. As your fitness consultant, I focus on holistic wellness—combining nutrition, rest, and physical activity to optimize your lifestyle.
+        </p>
+        <p>
+          Together, we'll build habits that support your immune system, improve energy levels, and reduce stress. Your journey to lifelong health starts here.
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="/static/F9.png" alt="Health" class="content-img" style="size-adjust: 350px;">
+      </div>
+    </div>
+
+    <!-- Section 2: Workout -->
+    <div class="row content-section align-items-center flex-md-row-reverse">
+      <div class="col-md-6">
+        <h2>Workout Routines</h2>
+        <p>
+          Whether you're aiming to build strength, lose weight, or improve endurance, I design custom workout plans suited to your goals and body type.
+        </p>
+        <p>
+          From home-friendly sessions to gym-based programs, every routine is crafted for maximum efficiency and safety.
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="/static/F.png" alt="Workout" class="content-img">
+      </div>
+    </div>
+
+    <!-- Section 3: Fitness -->
+    <div class="row content-section align-items-center">
+      <div class="col-md-6">
+        <h2>Fitness for Life</h2>
+        <p>
+          Fitness is not just a phase—it's a lifestyle. Through consistent training and mindset coaching, we’ll build the confidence and discipline that drive long-term results.
+        </p>
+        <p>
+          I’ll be your guide in staying motivated, tracking progress, and adapting your fitness plan to grow with you.
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="/static/F5.png" alt="Fitness" class="content-img">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
